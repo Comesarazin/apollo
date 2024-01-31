@@ -44,8 +44,34 @@
   color: black;
 }
 
+.homeimage {
+  width: 45%;
+}
+
 .imageContenut {
   width: 80%;
   border: 2px solid #FFF;
   background: rgba(217, 217, 217, 0.00);
+}
+
+@media screen and (max-width: 768px) {
+
+  .overlay-text {
+    top: 55%;
+    margin-left: 120px;
+    font-size: 15px;
+  }
+
+  .homeContenut {
+    flex-direction: column-reverse;
+    padding: 1rem;
+  }
+
+  .homeimage {
+    width: 100%;
+  }
+
+  .homeText {
+    width: 90%;
+  }
 }
