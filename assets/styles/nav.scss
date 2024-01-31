@@ -1,6 +1,7 @@
 .navbar {
   background-color: black;
   height: 80px;
+  padding-bottom: 20px;
 }
 
 .nav {
@@ -18,10 +19,12 @@
 
 .titre a {
   text-decoration: none;
-  color: white; /* Ajoutez votre couleur de texte souhaitée */
-  margin: 0 15px; /* Ajoutez une marge horizontale entre les liens si nécessaire */
+  color: white;
+  margin: 0 15px;
+ /* border: 1px solid #FDC24F;*/
+  padding: 5px;
 }
 
 .logoNav img {
-  max-height: 100px; /* Ajustez la hauteur maximale de votre logo si nécessaire */
+  max-height: 100px;
 }
