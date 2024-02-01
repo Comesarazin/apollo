@@ -1,0 +1,29 @@
+.h1login {
+  text-align: center;
+  margin: 4rem;
+}
+
+.formLogin {
+  background-color: #898989;
+  border: 5px solid #FDC24F;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.formLogin>input{
+  padding: 5px;
+  width: 80%;
+}
+
+.formLogin>label{
+  padding: 10px;
+}
+
+.formLogin>a {
+  padding: 10px;
+  color: black;
+}
