@@ -1,8 +1,16 @@
+.h1event {
+  text-align: center;
+  margin: 4rem;
+}
+
+
 .fullEvent {
   display: flex;
   flex-direction: column;
   width: 80%;
   align-items: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .event {
@@ -10,11 +18,21 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: 4px solid #FDC24F;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+;
 }
 
 .eventColone {
   display: flex;
   flex-direction: column;
+  width: 80%;
+  background-color: #898989;
+  margin: 30px;
+  padding: 10px;
+  border: 4px solid #FDC24F;
 }
 
 .event>img {
