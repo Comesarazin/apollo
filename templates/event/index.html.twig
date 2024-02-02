@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block body %}
+    <h1 class="h1event">Evénéménts à venir</h1>
+
+<div class="fullEvent">
+
+        {% for event in events %}
+            <div class="event">
+
+                <div class="eventColone">
+
+                    <h3>{{ event.titre }}</h3>
+                    <p>{{ event.description }}</p>
+                    {{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}
+                </div>
+
+                <img src="{{ vich_uploader_asset(event.poste) }}" alt="{{ event.titre }}">
+
+                    {#<a href="{{ path('app_event_show', {'id': event.id}) }}">show</a>#}
+            </div>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+</div>
+
+{% endblock %}
