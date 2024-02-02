@@ -27,13 +27,16 @@ class Picture
 
     #[Vich\UploadableField(mapping: 'Picture_image', fileNameProperty: 'image')]
     #[Assert\File(
-        maxSize: '4M',
+        maxSize: '5M',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
     )]
     private ?File $imageFile = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DatetimeInterface $updatedAt = null;
+
+    #[ORM\OneToOne(mappedBy: 'poste', cascade: ['persist', 'remove'])]
+    private ?Event $event = null;
 
     public function getId(): ?int
     {
@@ -74,5 +77,32 @@ class Picture
     public function setUpdatedAt(?DatetimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($event === null && $this->event !== null) {
+            $this->event->setPoste(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($event !== null && $event->getPoste() !== $this) {
+            $event->setPoste($this);
+        }
+
+        $this->event = $event;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getImage();
     }
 }

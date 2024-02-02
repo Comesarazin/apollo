@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EventController!{% endblock %}
+{% block title %}Event index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1 class="h1event">Evénéménts à venir</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="fullEvent">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/comesarazin/Desktop/Wild code school/checkpoint/checkpoint 4/projet apollo/apollo/src/Controller/EventController.php'|file_link(0) }}">src/Controller/EventController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/comesarazin/Desktop/Wild code school/checkpoint/checkpoint 4/projet apollo/apollo/templates/event/index.html.twig'|file_link(0) }}">templates/event/index.html.twig</a></code></li>
-    </ul>
+        {% for event in events %}
+            <div class="event">
+
+                <div class="eventColone">
+
+                    <h3>{{ event.titre }}</h3>
+                    <p>{{ event.description }}</p>
+                    {{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}
+                </div>
+
+                <img src="{{ vich_uploader_asset(event.poste) }}" alt="{{ event.titre }}">
+
+                    {#<a href="{{ path('app_event_show', {'id': event.id}) }}">show</a>#}
+            </div>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
 </div>
+
 {% endblock %}
